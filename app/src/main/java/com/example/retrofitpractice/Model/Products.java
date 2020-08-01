@@ -8,7 +8,7 @@ public class Products {
     private String name;
     @SerializedName("price")
     private String price;
-    @SerializedName("imageURL")
+    @SerializedName("imageUrl")
     private String imageURL;
     @SerializedName("quantity")
     private String quanity;
