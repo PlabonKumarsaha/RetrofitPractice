@@ -7,7 +7,7 @@ public class RetrofitClient {
 
     public static Retrofit retrofit;
     //public static Retrofit.Builder retrofit;
-    public static final String API_BASE_URL = "https://api.github.com/";
+    public static final String API_BASE_URL = "https://androidappsforyoutube.s3.ap-south-1.amazonaws.com/retrofit/";
 
     public static Retrofit getRetrofitInstance() {
 
