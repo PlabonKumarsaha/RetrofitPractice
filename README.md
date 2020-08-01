@@ -1,4 +1,3 @@
-# RetrofitPractice
 1.Add the retrofit dependency library
 
  implementation 'com.squareup.retrofit2:retrofit:2.5.0'
@@ -24,3 +23,5 @@ add convertion factory to make it GSON from any other data format.
 
 now show fetch data using GSON
 
+7. now create recyler view and in therecycler view add the Adapter to render the data.
+8.inflate the recylerview
