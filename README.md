@@ -9,7 +9,7 @@
 3. Make a model class and annotate with @SerializedName .The @SerializedName 
 annotation can be used to serialize a field with a different name 
 instead of an actual field name. We can provide the expected serialized name as an annotation attribute, 
-Gson can make sure to read or write a field with the provided name.
+Gson can make sure to read or write a field with the provided name.Make sure this @Serialized name and JSON attribute name is exactly the same
 https://www.tutorialspoint.com/what-to-use-serializedname-annotation-using-gson-in-java#:~:text=The%20%40SerializedName%20annotation%20can%20be,field%20with%20
 the%20provided%20name.
 
