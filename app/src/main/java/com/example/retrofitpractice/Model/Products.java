@@ -16,7 +16,7 @@ public class Products {
     private String unit;
 
     public Products(){
-        
+
     }
 
     public Products(String name, String price, String imageURL, String quanity, String unit) {
