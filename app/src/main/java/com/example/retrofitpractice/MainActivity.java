@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recylerView = findViewById(R.id.recylerView);
-        apiInterface = RetrofitClient.getRetrofitInstance().create(apiInterface.getClass());
+        apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
         //fetch lists
         Call<List<Products>> call = apiInterface.getAllProduct();
 
