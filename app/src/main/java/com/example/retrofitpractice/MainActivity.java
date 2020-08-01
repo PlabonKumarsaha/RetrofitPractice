@@ -1,10 +1,13 @@
 package com.example.retrofitpractice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.retrofitpractice.Adapter.ProductRecyclerAdapter;
 import com.example.retrofitpractice.Model.Products;
 import com.example.retrofitpractice.Model.retrofit.ApiInterface;
 import com.example.retrofitpractice.Model.retrofit.RetrofitClient;
@@ -19,12 +22,15 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     ApiInterface apiInterface;
+    RecyclerView recylerView;
+    ProductRecyclerAdapter productRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        recylerView = findViewById(R.id.recylerView);
         apiInterface = RetrofitClient.getRetrofitInstance().create(apiInterface.getClass());
         //fetch lists
         Call<List<Products>> call = apiInterface.getAllProduct();
@@ -36,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
                 // The network call was a success and we got a response
                 //TODO: use the repository list and display it
-                List<Products>s = response.body();
-                //showing the detch data
+                List<Products>product = response.body();
+                /*//showing the detch data
                 Gson gson = new Gson();
                 String s1 = gson.toJson(s);
-                Toast.makeText(getApplicationContext(),s1,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),s1,Toast.LENGTH_SHORT).show();*/
+
+                setRecylerData(product);
 
 
             }
@@ -52,5 +60,17 @@ public class MainActivity extends AppCompatActivity {
                 // TODO: handle error
             }
         });
+
+
+    }
+    public void setRecylerData(List<Products> productLists){
+
+        productRecyclerAdapter = new ProductRecyclerAdapter(productLists,this);
+        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this);
+        recylerView.setLayoutManager(linearLayoutManager);
+        recylerView.setAdapter(productRecyclerAdapter);
+        productRecyclerAdapter.notifyDataSetChanged();
+
+
     }
 }
