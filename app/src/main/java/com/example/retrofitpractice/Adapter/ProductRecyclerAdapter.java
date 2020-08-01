@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.retrofitpractice.Model.Products;
 import com.example.retrofitpractice.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,9 +43,12 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         holder.qnty.setText(productsList.get(position).getQuanity());
         holder.unit.setText(productsList.get(position).getUnit());
 
-        Glide
-                .with(context)
-                .load(productsList.get(position).getImageURL()).into(holder.prodImage);
+        Glide.with(context)
+               .load(productsList.get(position).getImageURL()).into(holder.prodImage);
+
+       // Picasso.get()
+         //       .load(productsList.get(position).getImageURL())
+           //     .into(holder.prodImage);
 
 
 
